@@ -1,0 +1,37 @@
+<MyGrid>
+    #pointers to ids from object property in the main program
+    first_name: first_name
+    last_name: last_name
+    email: email
+    
+    GridLayout:
+        cols:1
+        size: root.width -200, root.height -200
+        pos: 100, 100
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "First name: "
+            TextInput:
+                id: first_name
+                multiline: False    
+            
+            Label:
+                text: "Last name: "
+            TextInput:
+                id: last_name
+                multiline: False
+    
+            Label:
+                text: "Email: "
+            TextInput:
+                id: email
+                multiline: False   
+
+        Button:
+            text:"Submit" 
+            #use root.btn so that the root refers to the widget(mygrid) and btn is the method inside that class
+            #it automatially passes an instance in the btn method
+            on_press: root.btn()        
