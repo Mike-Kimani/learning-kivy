@@ -1,13 +1,17 @@
 <Button>:
+    
     font_size:20
-    color: 0.7,0.6,0.7,1
-    size_hint:0.5, 0.2
+    color: 0.3,0.6,0.7,1 
+    size_hint:0.5, 0.1
 
 <Floatlayout>:
     Button:
+        #placing the button
         pos_hint: {"x":0.25,"top":0.8}
         text :"Tech With Mike"
         
     Button:
+        id: btn
         pos_hint: {"x":0.25,"top":0.4}
-        text :"Mike"
+        text :"Mike" if btn.state == "normal" else "Down"
+        background_color: 1,0,0,1 
