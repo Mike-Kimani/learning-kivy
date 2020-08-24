@@ -11,7 +11,8 @@ class Touch(Widget):
         print("Mouse Down", touch)
         self.btn.opacity = 0.5
     def on_touch_move(self,touch):
-        print("Mouse Move", touch)
+        print("Mouse Drag", touch)
+        self.btn.opacity =0.1
     def on_touch_up(self, touch):
         print("Mouse Up", touch)
         self.btn.opacity =1
