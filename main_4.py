@@ -2,7 +2,6 @@
 import kivy
 from kivy.app import App
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty
 from kivy.graphics import Rectangle
 from kivy.graphics import Color
 from kivy.graphics import Line
@@ -22,6 +21,7 @@ class Touch(Widget):
     def on_touch_down(self,touch):
         print("Mouse Down", touch)
         self.rect.pos = touch.pos
+
         
     def on_touch_move(self,touch):
         print("Mouse Drag", touch)
