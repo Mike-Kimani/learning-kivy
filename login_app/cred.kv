@@ -118,7 +118,34 @@
                 root.manager.transition.direction = "right"
                 #root.createBtn()     
             
+<MainWindow>:
+    n: n
+    email: email
+    created: created
 
+    FloatLayout:
+        Label:
+            id: n
+            pos_hint: {"x":0.3 , "top:"0.8}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 9**4
+            text: "Account Name: "
+        Label:
+            id: email
+            pos_hint: {"x":0.3, "top":0.6}
+            size_hint: 0.4,0.1
+            font_size: (root.width**2 + root.height**2) / 9**4
+            text: "Email: "
+        Label:
+            id: created
+            pos_hint: {"x":0.3, "top":0.4}
+            size_hint: 0.4,0.1
+            font_size: (root.width**2 + root.height**2) / 9**4
+            text: "Created on: "
+          
+
+
+        
 
 
 
