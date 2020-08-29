@@ -13,5 +13,10 @@ class CreateAccountWindow(Screen):
 
 class LoginWindow(Screen):
     email = ObjectProperty(None)
-    password = ObjectProprty(None)
+    password = ObjectProperty(None)
+
+class MainWindow(Screen):
+    n = ObjectProperty(None)
+    email = ObjectProperty(None)
+    created = ObjectProperty(None)    
     
