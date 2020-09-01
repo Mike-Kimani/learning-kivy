@@ -7,8 +7,10 @@
 
     FloatLayout:
         cols:1
+        
         FloatLayout:
             size: root.width, root.height/2
+            
             Label:
                 text: "Create an Account"
                 size_hint: 0.8, 0.2
@@ -46,12 +48,13 @@
                 multiline: False
                 pos_hint: {"x":0, "top":0.8-0.13*2}
                 font_size: (root.width**2 + root.height**2) / 14**4
+                size_hint: 0.5,0.12
             TextInput:
                 id: passw
                 multiline: False
                 pos_hint: {"x":0.5, "top": 0.8-0.13*2}
                 size_hint: 0.4, 0.12
-                #password: True
+                password: True
                 font_size: (root.width**2 + root.height**2) / 14**4 
 
         Button:
@@ -69,6 +72,7 @@
             pos_hint: {"x":0.3, "y":0.05}
             on_release:
                 root.manager.transition.direction = "right"
+                app.root.current = "login"
                 #root.login()    
 
 <LoginWindow>:
@@ -100,6 +104,7 @@
             size_hint: 0.4,0.12
             multiline: False
             font_size: (root.width**2 + root.height**2) / 13**4
+            password: True
 
         Button:
             size_hint: 0.6, 0.2
@@ -107,14 +112,15 @@
             text: "LOGIN"
             font_size: (root.width**2 + root.height**2) / 13**4
             on_release:
-                root.manager.transition.direction = "left"
                 #root.loginBtn()
+                root.manager.transition.direction = "up"
         Button:
-            size_hint: 0.8, 0.15
-            pos_hint: {"x":0.1, "y":0.07}
+            size_hint: 0.4, 0.1
+            pos_hint: {"x":0.3, "y":0.07}
             text: "Don't have an account? Create one."
-            font_size: (root.width**2 + root.height**2) / 9**4
+            font_size: (root.width**2 + root.height**2) / 17**4
             on_release:
+                app.root.current = "create"
                 root.manager.transition.direction = "right"
                 #root.createBtn()     
             
@@ -126,22 +132,41 @@
     FloatLayout:
         Label:
             id: n
-            pos_hint: {"x":0.3 , "top:"0.8}
-            size_hint: 0.4, 0.1
-            font_size: (root.width**2 + root.height**2) / 9**4
+            pos_hint: {"x":0.1 , "top":0.9}
+            size_hint: 0.8, 0.2
+            #font_size: (root.width**2 + root.height**2) / 9**4
             text: "Account Name: "
         Label:
             id: email
-            pos_hint: {"x":0.3, "top":0.6}
-            size_hint: 0.4,0.1
-            font_size: (root.width**2 + root.height**2) / 9**4
+            pos_hint: {"x":0.1, "top":0.7}
+            size_hint: 0.8, 0.2
+            #font_size: (root.width**2 + root.height**2) / 9**4
             text: "Email: "
         Label:
             id: created
-            pos_hint: {"x":0.3, "top":0.4}
-            size_hint: 0.4,0.1
-            font_size: (root.width**2 + root.height**2) / 9**4
-            text: "Created on: "
+            pos_hint: {"x":0.1, "top":0.5}
+            size_hint: 0.8, 0.2
+            #font_size: (root.width**2 + root.height**2) / 9**4
+            text: "Created : "
+        Button:
+            pos_hint: {"x":0.2, "top":0.3 }
+            size_hint: 0.6, 0.1
+            text: "LOG OUT"
+            #font_size: font_size: (root.width**2 + root.height**2) / 9**4
+            on_release:
+                #root.loginBtn()
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
+        Button:
+            pos_hint: {"x": 0.3, "top": 0.1}
+            size_hint: 0.35, 0.1
+            text: "Sign out"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            on_release:
+                app.root.current = "create"
+                root.manager.transition.direction = "down"
+
+
           
 
 
