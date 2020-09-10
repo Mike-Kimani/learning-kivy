@@ -17,9 +17,10 @@ class CreateAccountWindow(Screen):
             if self.password != "":
                 db.add_user(self.email.text,  self.password.text, self.namee.text)
                 
-                self.reset()
+                self.reset() 
+                   
+
                 
-                sm.current = "login"
             else:
                 invalid_form()
         else:
@@ -89,6 +90,13 @@ def invalid_form():
                 size_hint = (None, None), size =(400,400))
     
     pop.open()
+
+def existing_user():
+    pop = Popup(title= 'Existing user',
+                content = Label(text = 'Email already registered'),
+                size_hint = (None, None), size =(400,400))
+    
+    pop.open()    
 
 
 kv = Builder.load_file("cred.kv")

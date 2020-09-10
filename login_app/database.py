@@ -1,7 +1,6 @@
-# database.py
-
 import datetime
-
+#from login_app import WindowManager
+#sm = WindowManager()
 
 class DataBase:
     def __init__(self, filename):
@@ -15,7 +14,7 @@ class DataBase:
         self.users = {}
 
         for line in self.file:
-            email,password,name,created = line.strip().split(",")
+            email, password, name, created = line.strip().split(";")
             self.users[email] = (password,name,created)    
         
         self.file.close()
@@ -26,13 +25,14 @@ class DataBase:
         else:
             return -1    
 
-    def add_user(self,email, password, name):
+    def add_user(self, email, password, name):
         if email.strip() not in self.users:
-            self.users[email.strip] = (password.strip(), name.strip(), DataBase.get_date())
+            self.users[email.strip()] = (password.strip(), name.strip(), DataBase.get_date())
             self.save()
             return 1
         else:
             print("Email already exists")
+            #sm.current = "create"
             return -1
     
     def validate (self,email,password):
